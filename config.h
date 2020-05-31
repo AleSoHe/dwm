@@ -95,6 +95,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+    // Light
+    { MODKEY,                       z,         spawn,          SHCMD("light -U 5") },
+    { MODKEY,                       x,         spawn,          SHCMD("light -U 5") },
     // VOLUME
     { 0, XF86XK_AudioRaiseVolume,   spawn,     SHCMD("vol up; kill -44 $(pidof dwmblocks)") },
     { 0, XF86XK_AudioLowerVolume,   spawn,     SHCMD("vol down; kill -44 $(pidof dwmblocks)") },
