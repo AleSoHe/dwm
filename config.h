@@ -66,11 +66,6 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *browser[]  = { "brave", NULL };
 
-// Volume commands
-static const char *upvol[]    = { "vol", "up", NULL};
-static const char *downvol[]    = { "vol", "down", NULL};
-static const char *mutevol[]    = { "vol", "mute", NULL};
-
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -100,9 +95,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
     // VOLUME
-    { 0, XF86XK_AudioRaiseVolume,   spawn,     {.v = upvol}},
-    { 0, XF86XK_AudioLowerVolume,   spawn,     {.v = downvol}},
-    { 0, XF86XK_AudioMute,          spawn,     {.v = mutevol}},
+    { 0, XF86XK_AudioRaiseVolume,   spawn,     SHCMD("vol up; kill -44 $(pidof dwmblocks)") },
+    { 0, XF86XK_AudioLowerVolume,   spawn,     SHCMD("vol down; kill -44 $(pidof dwmblocks)") },
+    { 0, XF86XK_AudioMute,          spawn,     SHCMD("vol mute; kill -44 $(pidof dwmblocks)") },
     // TAGS
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
