@@ -1,15 +1,14 @@
-dwm - dynamic window manager
-============================
-dwm is an extremely fast, small, and dynamic window manager for X.
+# dwm 
 
+This is a fork from dwm
+> dwm is an extremely fast, small, and dynamic window manager for X.
 
-Requirements
-------------
+# Requirements
+
 In order to build dwm you need the Xlib header files.
 
+# Installation
 
-Installation
-------------
 Edit config.mk to match your local setup (dwm is installed into
 the /usr/local namespace by default).
 
@@ -19,10 +18,11 @@ necessary as root):
     make clean install
 
 
-Running dwm
------------
+# Running dwm
+
 Add the following line to your .xinitrc to start dwm using startx:
 
+    picom -b
     exec dwm
 
 In order to connect dwm to a specific display, make sure that
@@ -41,8 +41,13 @@ like this in your .xinitrc:
     done &
     exec dwm
 
+# Fork changes
 
-Configuration
--------------
-The configuration of dwm is done by creating a custom config.h
-and (re)compiling the source code.
+This is my personal fork, so it is or will match my likes, using patches or 
+other source changes.
+
+By now, the changes are:
+
+    - Fibonacci layout (Patch) with Mod+s
+    - Uselessgaps (Patch) for gaps 
+
