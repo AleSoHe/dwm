@@ -8,7 +8,8 @@ static const unsigned int gappx     = 6;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=11" };
+static const char *fonts[]          = { "Ubuntu Mono Nerd Font:pixelsize=18:antialias=true:autohint=true" };
+//static const char *fonts[]          = { "monospace:size=11" };
 static const char dmenufont[]       = "monospace:size=11";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -20,15 +21,18 @@ static const char col_yellow[]      = "#d79921";
 static const char col_orange[]      = "#d65d0e";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
+	//[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+	//[SchemeSel]  = { col_gray4, col_gray1,  col_red  },
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_gray1,  col_red  },
+	[SchemeSel]  = { col_yellow, col_gray1,  col_red  },
 };
 
 /* tagging */
-// 📜 📡📞📒📨📫📶🔊🔌🔑🔨🌎🌐🐛🚀🎻💩🔥💯⏳⧗ ⧖ ⌛β π 📆💰💻ℹ🚽
+// 📜 📡📞📒📨📫📶🔊🔌🔑🔨🌎🌐🐛🚀🎻💩🔥💯⏳⧗ ⧖ ⌛β π 📆💰💻ℹ🚽🎥🎵🚀🛰️🛸🏁🔬👓📊
 // 🄌 ➊ ➋ ➌ ➍ ➎ ➏ ➐ ➑ ➒ ➓
 // ⓿ ❶ ❷ ❸ ❹ ❺ ❻ ❼ ❽ ❾ ❿
-static const char *tags[] = {"💻","🌐","3","4","5","6","7","8","🚽","0"};
+// ₁₂₃₄₅₆₇₈₉
+static const char *tags[] = {"💻₁","🌐₂","📫₃","⏳₄","🚀₅","🎵₆","🎥₇","ℹ₈","🚽₉","0"};
 
 static const Rule rules[] = {
 	/* xprop(1):
