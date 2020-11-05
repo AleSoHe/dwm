@@ -52,6 +52,7 @@ static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
 #include "fibonacci.c"
+#include "grid.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "| 🖽🖽",      tile },    /* first entry is default */
@@ -63,6 +64,7 @@ static const Layout layouts[] = {
 	{ ">M>",      centeredfloatingmaster },
 	{ "TTT",      bstack },
 	{ "===",      bstackhoriz },
+	{ "HHH",      grid },
 };
 
 /* key definitions */
@@ -111,6 +113,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[6]} },
 	{ MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[7]} },
 	{ MODKEY|ShiftMask,             XK_o,      setlayout,      {.v = &layouts[8]} },
+	{ MODKEY|ShiftMask,             XK_h,      setlayout,      {.v = &layouts[9]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
