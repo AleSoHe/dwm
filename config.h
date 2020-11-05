@@ -8,7 +8,7 @@ static const unsigned int gappx     = 6;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Ubuntu Mono Nerd Font:pixelsize=18:antialias=true:autohint=true" };
+static const char *fonts[]          = { "Ubuntu Mono Nerd Font:pixelsize=16:antialias=true:autohint=true" };
 //static const char *fonts[]          = { "monospace:size=11" };
 static const char dmenufont[]       = "monospace:size=11";
 static const char col_gray1[]       = "#222222";
@@ -61,6 +61,8 @@ static const Layout layouts[] = {
  	{ "| ↘",      dwindle },
 	{ "|M|",      centeredmaster },
 	{ ">M>",      centeredfloatingmaster },
+	{ "TTT",      bstack },
+	{ "===",      bstackhoriz },
 };
 
 /* key definitions */
@@ -107,6 +109,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_s,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[5]} },
 	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[6]} },
+	{ MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[7]} },
+	{ MODKEY|ShiftMask,             XK_o,      setlayout,      {.v = &layouts[8]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
