@@ -68,6 +68,7 @@
 #define TAGMASK                 ((1 << LENGTH(tags)) - 1)
 #define TEXTW(X)                (drw_fontset_getwidth(drw, (X)) + lrpad)
 #define TRUNC(X,A,B)            (MAX((A), MIN((X), (B))))
+#define NO_SWALLOW_ENV_VAR         ("NO_SWALLOW")
 
 /* enums */
 enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
@@ -2384,6 +2385,28 @@ getparentprocess(pid_t p)
 	return (pid_t)v;
 }
 
+Bool has_no_swallow_env_var(pid_t p) {
+  Bool has_no_swallow = False;
+  FILE *cmd = NULL;
+  char cmd_char[512];
+  char cmd_res[1024];
+
+  /* Build command */
+	snprintf(cmd_char, sizeof(cmd_char) - 1, "grep %s /proc/%u/environ",
+           NO_SWALLOW_ENV_VAR, p);
+
+  /* Search for non-swallow env variable */
+  cmd = popen(cmd_char, "r");
+  if (cmd) {
+    while (fgets(cmd_res, sizeof(cmd_res), cmd)) {
+      has_no_swallow = True;
+    }
+  }
+  pclose(cmd);
+
+	return has_no_swallow;
+}
+
 int
 isdescprocess(pid_t p, pid_t c)
 {
@@ -2404,7 +2427,7 @@ termforwin(const Client *w)
 
 	for (m = mons; m; m = m->next) {
 		for (c = m->clients; c; c = c->next) {
-			if (c->isterminal && !c->swallowing && c->pid && isdescprocess(c->pid, w->pid))
+			if (c->isterminal && !c->swallowing && c->pid && isdescprocess(c->pid, w->pid) && !has_no_swallow_env_var(w->pid))
 				return c;
 		}
 	}
