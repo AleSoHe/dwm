@@ -55,3 +55,7 @@ By now, the patches are:
 
 And personal changes are:
     - Disable focus change on mouse move
+
+# Fonts
+To avoid emojis being printed as boxes, install:
+sudo apt install ttf-ancient-fonts-symbola
