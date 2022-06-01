@@ -14,7 +14,7 @@ static const int stairdirection     = 1;        /* 0: left-aligned, 1: right-ali
 static const int stairsamesize      = 1;        /* 1 means shrink all the staired windows to the same size */
 static const char *fonts[]          = { "Ubuntu Mono Nerd Font:pixelsize=16:antialias=true:autohint=true" };
 //static const char *fonts[]          = { "monospace:size=11" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char dmenufont[]       = "monospace:size=11";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
