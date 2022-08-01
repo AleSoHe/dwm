@@ -9,6 +9,9 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const unsigned int stairpx   = 60;       /* depth of the stairs layout */
+static const int stairdirection     = 1;        /* 0: left-aligned, 1: right-aligned */
+static const int stairsamesize      = 1;        /* 1 means shrink all the staired windows to the same size */
 static const char *fonts[]          = { "Ubuntu Mono Nerd Font:pixelsize=16:antialias=true:autohint=true" };
 //static const char *fonts[]          = { "monospace:size=11" };
 static const char dmenufont[]       = "monospace:size=10";
@@ -65,6 +68,7 @@ static const Layout layouts[] = {
 	{ "| 🖽🖽",      tile },    /* first entry is default */
 	{ "| 🎈",      NULL },    /* no layout function means floating behavior */
 	{ "| ◻️",      monocle },
+	{ "[S]",      stairs },
  	{ "| 🌀",      spiral },
  	{ "| ↘",      dwindle },
 	{ "|M|",      centeredmaster },
@@ -114,6 +118,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_n,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY|ShiftMask,             XK_s,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[5]} },
