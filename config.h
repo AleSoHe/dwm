@@ -142,6 +142,11 @@ static Key keys[] = {
     { 0, XF86XK_AudioRaiseVolume,   spawn,     SHCMD("vol up; kill -44 $(pidof dwmblocks)") },
     { 0, XF86XK_AudioLowerVolume,   spawn,     SHCMD("vol down; kill -44 $(pidof dwmblocks)") },
     { 0, XF86XK_AudioMute,          spawn,     SHCMD("vol mute; kill -44 $(pidof dwmblocks)") },
+    { 0, XF86XK_AudioPlay,          spawn,     SHCMD("player play-pause") },
+    { 0, XF86XK_AudioPause,         spawn,     SHCMD("player play-pause") },
+    { 0, XF86XK_AudioStop,          spawn,     SHCMD("player stop") },
+    { 0, XF86XK_AudioNext,          spawn,     SHCMD("player next") },
+    { 0, XF86XK_AudioPrev,          spawn,     SHCMD("player previous") },
     // TAGS
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
