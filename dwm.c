@@ -72,7 +72,16 @@
 
 /* enums */
 enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
-enum { SchemeNorm, SchemeSel }; /* color schemes */
+
+enum { SchemeNorm,
+       SchemeSel,
+       SchemeBar0,
+       SchemeBar1,
+       SchemeBar2,
+       SchemeBar3,
+       SchemeBarLast
+};
+
 enum { NetSupported, NetWMName, NetWMState, NetWMCheck,
        NetWMFullscreen, NetActiveWindow, NetWMWindowType,
        NetWMWindowTypeDialog, NetClientList, NetLast }; /* EWMH atoms */
@@ -840,6 +849,7 @@ drawbar(Monitor *m)
 
 	/* draw status first so it can be overdrawn by tags later */
 	if (m == selmon) { /* status is only drawn on selected monitor */
+    int scheme_id = SchemeBar0;
 		char *text, *s, ch;
 		drw_setscheme(drw, scheme[SchemeNorm]);
 
@@ -853,6 +863,12 @@ drawbar(Monitor *m)
 				x += tw;
 				*s = ch;
 				text = s + 1;
+
+        if (scheme_id > SchemeBarLast)
+          scheme_id = SchemeBar0;
+        drw_setscheme(drw, scheme[scheme_id]);
+
+        scheme_id++;
 			}
 		}
 		tw = TEXTW(text) - lrpad + 2;

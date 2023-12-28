@@ -16,6 +16,7 @@ static const char *fonts[]          = { "Ubuntu Mono Nerd Font:pixelsize=16:anti
 //static const char *fonts[]          = { "terminus:style=Bold:size=16", "Noto Color Emoji:size=16"};
 //static const char *fonts[]          = { "monospace:size=11" };
 static const char dmenufont[]       = "monospace:size=10";
+static const char col_gray[]       = "#393939";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -24,12 +25,34 @@ static const char col_cyan[]        = "#005577";
 static const char col_red[]         = "#ff0000";
 static const char col_yellow[]      = "#d79921";
 static const char col_orange[]      = "#d65d0e";
+
+/* Gruvbox palette
+static const char col_status_0[]       = "#928374";
+static const char col_status_1[]       = "#9d0006";
+static const char col_status_2[]       = "#79740e";
+static const char col_status_3[]       = "#b57614";
+static const char col_status_4[]       = "#076678";
+*/
+
+/* Dracula palette */
+static const char col_bg[]             = "#282a36";
+static const char col_status_0[]       = "#bd93f9"; /* Purple */
+static const char col_status_1[]       = "#50fa7b"; /* Green */
+static const char col_status_2[]       = "#ff79c6"; /* Pink */
+static const char col_status_3[]       = "#f1fa8c"; /* Yellow */
+static const char col_status_4[]       = "#ffb86c"; /* Orange */
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	//[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	//[SchemeSel]  = { col_gray4, col_gray1,  col_red  },
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_yellow, col_gray1,  col_red  },
+	[SchemeNorm] = { col_gray3, col_bg, col_gray2 },
+	[SchemeSel]  = { col_yellow, col_bg,  col_red  },
+
+  /* Status Bar Colors (top right status information) */
+	[SchemeBar0]  = { col_status_0,  col_bg, col_red  },
+	[SchemeBar1]  = { col_status_1,  col_bg, col_red  },
+	[SchemeBar2]  = { col_status_2,  col_bg, col_red  },
+	[SchemeBar3]  = { col_status_3,  col_bg, col_red  },
+	[SchemeBarLast]  = { col_status_4,  col_bg, col_red  },
 };
 static const XPoint stickyicon[]    = { {0,0}, {4,0}, {4,8}, {2,6}, {0,8}, {0,0} }; /* represents the icon as an array of vertices */
 static const XPoint stickyiconbb    = {4,8};	/* defines the bottom right corner of the polygon's bounding box (speeds up scaling) */
