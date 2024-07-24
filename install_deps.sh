@@ -6,7 +6,7 @@ echo "IMPORTANT: If using Ubuntu, follow the steps commented in this script belo
 # TODO: the following has to be done in Ubuntu too
 #sudo apt install dwm
 #sudo cp /usr/share/xsessions/dwm.desktop{,.bak}
-#sudo purge install dwm
+#sudo apt remove --purge dwm
 #sudo mv /usr/share/xsessions/dwm.desktop{.bak,}
 #
 #sudo apt install lightdm
